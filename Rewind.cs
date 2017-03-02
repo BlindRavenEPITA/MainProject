@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// CA MARCHE!!!!!!!!!!
+
 public class Rewind : MonoBehaviour {
 
 	public List <Vector3> positions;
@@ -12,7 +14,6 @@ public class Rewind : MonoBehaviour {
 	void Start() {
 		Character = GameObject.FindGameObjectWithTag ("Player");
 	}
-	// Update is called once per frame
 	void FixedUpdate () {
 		
 		if (Cooldown > 0.0) {
@@ -21,28 +22,30 @@ public class Rewind : MonoBehaviour {
 
 		if (Cooldown < 0)
 			Cooldown = 0;
-	}
 
-	void Update (){
-
-		if (Input.GetKeyDown (KeyCode.F)) {
-			LaunchRewind (Character);
-		} else {
-			if (isActive == false && positions.Count < 100) {
+		if (Cooldown == 0) {
+			if (isActive == false && positions.Count < 200) {
 				positions.Add (Character.transform.position);
 
-			} else if (isActive == false && positions.Count == 100) {
+			} else if (isActive == false && positions.Count == 200) {
 				positions.RemoveAt (0);
 				positions.Add (Character.transform.position);
 			}
 		}
 	}
 
+	void Update (){
+
+		if (Input.GetKeyDown (KeyCode.F)) {
+			LaunchRewind (Character);
+		}
+	}
+
 	public void LaunchRewind(GameObject charac){
 
 		isActive = true;
-		if (Cooldown <= 0) {
-			int i = positions.Count - 1;
+		if (Cooldown == 0) {
+			int i = 0;
 			charac.transform.position = positions[i];
 
 			positions.Clear ();
@@ -52,7 +55,8 @@ public class Rewind : MonoBehaviour {
 	}
 
 	void OnGUI(){
-		GUI.Box (new Rect (Screen.width - 150, Screen.height - 50, 75, 25), Cooldown.ToString ());		
+		GUI.Box (new Rect (Screen.width - 100, Screen.height - 20, 75, 25), "Rewind Cooldown : " + Cooldown.ToString ());		
 	}
 }
+
 
