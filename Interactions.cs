@@ -23,7 +23,7 @@ public class Interactions : MonoBehaviour {
 		Collider[] hitColliders = Physics.OverlapSphere(interactSphere, Radius);
 		foreach (Collider Inter in hitColliders) {
 			if (Inter.gameObject.tag == "Interactable") {
-				SceneManager.LoadScene("LevelComplete");
+				SceneManager.LoadScene("completedLevel");
 			}
 		}
 	}
