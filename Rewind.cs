@@ -15,7 +15,7 @@ public class Rewind : MonoBehaviour {
 		Character = GameObject.FindGameObjectWithTag ("Player");
 	}
 	void FixedUpdate () {
-		
+
 		if (Cooldown > 0.0) {
 			Cooldown -= Time.fixedDeltaTime;
 		}
@@ -55,8 +55,6 @@ public class Rewind : MonoBehaviour {
 	}
 
 	void OnGUI(){
-		GUI.Box (new Rect (Screen.width - 100, Screen.height - 20, 75, 25), "Rewind Cooldown : " + Cooldown.ToString ());		
+		GUI.Box (new Rect (Screen.width - 170, Screen.height - 70, 170, 25), "Rewind Cooldown : " + Cooldown.ToString ());		
 	}
 }
-
-
