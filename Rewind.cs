@@ -46,9 +46,7 @@ public class Rewind : MonoBehaviour {
 			float a = positions [i];
 			float b = positions [i + 1];
 			float c = positions [i + 2];
-			charac.transform.position.x = a;
-			charac.transform.position.y = b;
-			charac.transform.position.z = c;
+			charac.transform.position = new Vector3( a, b, c);
 		
 		}
 
