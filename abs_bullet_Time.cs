@@ -5,13 +5,13 @@ using UnityEngine;
 public class abs_bullet_Time : MonoBehaviour {
 	public float minTimeScale = 0.5f;
 	public float transitionSpeed = 1.0f;
-	GameObject player;
+	//GameObject player;
 
 	bool isBulletTime = false;
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.FindWithTag ("Player");
+		//player = GameObject.FindWithTag ("Player");
 	}
 	
 	// Update is called once per frame
@@ -45,6 +45,6 @@ public class abs_bullet_Time : MonoBehaviour {
 	}
 
 	void OnGUI(){
-		GUI.Box (new Rect (Screen.width - 150, Screen.height - 50, 75, 25), Time.timeScale.ToString ());
+		GUI.Box (new Rect (Screen.width - 170, Screen.height - 50, 170, 25), "Time scale : " + Time.timeScale.ToString ());
 	}
 }
