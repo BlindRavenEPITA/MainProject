@@ -56,6 +56,6 @@ public class Rewind : MonoBehaviour {
 	}
 
 	void OnGUI(){
-		GUI.Box (new Rect (Screen.width - 170, Screen.height - 70, 170, 25), "Rewind Cooldown : " + Cooldown.ToString ());		
+		GUI.Box (new Rect (Screen.width - 170, Screen.height - 70, 170, 25), "Rewind Cooldown : " + ((int)Cooldown).ToString ());		
 	}
 }
