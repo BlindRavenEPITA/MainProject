@@ -10,6 +10,7 @@ public class Rewind : MonoBehaviour {
 	public bool isActive = false;
 	public float Cooldown = 0.0f;
 	public GameObject Character;
+	public MaxRewind = 200;
 
 	void Start() {
 		Character = GameObject.FindGameObjectWithTag ("Player");
@@ -24,10 +25,10 @@ public class Rewind : MonoBehaviour {
 			Cooldown = 0;
 
 		if (Cooldown == 0) {
-			if (isActive == false && positions.Count < 200) {
+			if (isActive == false && positions.Count < MaxRewind) {
 				positions.Add (Character.transform.position);
 
-			} else if (isActive == false && positions.Count == 200) {
+			} else if (isActive == false && positions.Count == MaxRewind) {
 				positions.RemoveAt (0);
 				positions.Add (Character.transform.position);
 			}
