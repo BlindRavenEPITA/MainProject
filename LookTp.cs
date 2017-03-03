@@ -45,6 +45,6 @@ public class LookTp : MonoBehaviour {
             }
 	}
 	void OnGUI(){
-		GUI.Box (new Rect (Screen.width - 170, Screen.height - 30, 170, 25), "Tp cooldown time : " + Timer.ToString ());
+		GUI.Box (new Rect (Screen.width - 170, Screen.height - 30, 170, 25), "Tp cooldown time : " + ((int)Timer).ToString ());
 	}
 }
