@@ -10,7 +10,7 @@ public class Rewind : MonoBehaviour {
 	public bool isActive = false;
 	public float Cooldown = 0.0f;
 	public GameObject Character;
-	public MaxRewind = 200;
+	public  int MaxRewind = 200;
 
 	void Start() {
 		Character = GameObject.FindGameObjectWithTag ("Player");
