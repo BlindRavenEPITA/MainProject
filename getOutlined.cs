@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class getOutlined : MonoBehaviour {
@@ -7,8 +7,6 @@ public class getOutlined : MonoBehaviour {
 	private Renderer rend;
 	public GameObject Player;
 	private RaycastHit hit;
-	float visible = 2.0f;
-
 	// Use this for initialization
 	void Start () {
 		try
@@ -19,39 +17,19 @@ public class getOutlined : MonoBehaviour {
 		{
 			rend = GetComponent<Renderer>();
 		}
-
 		outline = Shader.Find("Custom/NewSurfaceShader");
-		normal = Shader.Find("Standard");
-		rend.material.shader = normal;
-
-		//Player = GameObject.FindWithTag ("Player");
-	}
-
+		normal = Shader.Find("Standard");	}
+	
 	// Update is called once per frame
 	void Update () {
-
-		if (Physics.Raycast (Player.transform.position, Player.transform.TransformDirection (Vector3.forward), out hit, 15.0f)) {
-
-			if (hit.collider.gameObject == gameObject) {
+		if (Physics.SphereCast (Player.transform.position,0.5f, Player.transform.TransformDirection (Vector3.forward),out hit, 10f))
+		{
+			if (hit.collider.gameObject == this.gameObject)
 				rend.material.shader = outline;
-				visible = 2.0f;
-			} 
-
-			else if (visible > 0)
-				visible -= Time.deltaTime;
-
-			else {
+			else
 				rend.material.shader = normal;
-				visible = 0;
-			}
-		} 
-
-		else if (visible > 0)
-			visible -= Time.deltaTime;
-
-		else {
-			visible = 0;
-			rend.material.shader = normal;
 		}
+		else
+			rend.material.shader = normal;
 	}
 }
